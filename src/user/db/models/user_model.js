@@ -40,7 +40,6 @@ User.init(
     },
 );
 
-
 (async () => {
     await sequelize.sync({ force: forceModel });
 })();

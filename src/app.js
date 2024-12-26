@@ -12,8 +12,8 @@ startConnection()
 setMiddleware(app)
 setModuleUser(app)
 setModuleAuth(app)
+setModulePointMachine(app)
 setModuleMachine(app)
 setModulePoint(app)
-setModulePointMachine(app)
 
 module.exports = app

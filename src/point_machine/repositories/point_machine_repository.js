@@ -10,6 +10,11 @@ const createPointMachineRepository = ({
     porcentage,
 })
 
+const getPointsMachineRepository = ()=> PointMachine.findAll({
+    include: {all:true}
+})
+
 module.exports = {
+    getPointsMachineRepository,
     createPointMachineRepository,
 }

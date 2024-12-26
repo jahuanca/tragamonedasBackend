@@ -4,15 +4,15 @@ const createPointMachineUseCaseExecute = require("../use_cases/create_point_mach
 const createPointMachineController = async (req, res) => {
     const {
         idPoint,
-    idMachine,
-    porcentage,
+        idMachine,
+        porcentage,
     } = req.body
     const [err, pointMachine] = await getPromise(createPointMachineUseCaseExecute({
         idPoint,
-    idMachine,
-    porcentage,
+        idMachine,
+        porcentage,
     }))
-    if(err) return res.status(500).json(err)
+    if (err) return res.status(500).json(err)
     return res.status(200).json(pointMachine)
 }
 

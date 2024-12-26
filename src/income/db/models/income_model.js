@@ -6,13 +6,6 @@ class Income extends Model { }
 
 Income.init(
     {
-        idPointMachine: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        idUser: {
-            type: DataTypes.STRING,
-        },
         date: {
             type: DataTypes.STRING,
         },
@@ -36,5 +29,7 @@ Income.init(
         modelName: 'Income',
     },
 );
+
+
 
 module.exports = Income
