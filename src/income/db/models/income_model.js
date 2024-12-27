@@ -14,9 +14,12 @@ Income.init(
         },
         date: {
             type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Date.now(),
         },
         amount: {
             type: DataTypes.DOUBLE,
+            allowNull: false,
         },
         typeIncome: {
             type: DataTypes.ENUM(typesIncome),
@@ -38,10 +41,10 @@ Income.init(
 );
 
 (async () => {
-    await sequelize.sync({ force: forceModel });
+    await Income.sync({force: false})
 })();
 
-Income.belongsTo(User, { foreignKey : 'idUser'})
 Income.belongsTo(PointMachine, { foreignKey : 'idPointMachine'})
+Income.belongsTo(User, { foreignKey : 'idUser'})
 
 module.exports = Income

@@ -3,8 +3,11 @@ const inactiveState = 'I'
 const currenciesMachine = [
     '10 centimos', '20 centimos', '50 centimos'
 ];
+const typeIncomeInsert = 'Ingreso'
+const typeIncomeExit = 'Salida'
 const typesIncome = [
-    'Ingreso', 'Salida',
+    typeIncomeInsert, 
+    typeIncomeExit,
 ];
 const defaultCurrencyMachine = currenciesMachine[0]
 
@@ -16,4 +19,6 @@ module.exports = {
     currenciesMachine,
     defaultCurrencyMachine,
     typesIncome,
+    typeIncomeInsert,
+    typeIncomeExit,
 }
