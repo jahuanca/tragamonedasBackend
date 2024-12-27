@@ -6,6 +6,7 @@ const setModuleAuth = require('./auth')
 const setModuleMachine = require('./machine')
 const setModulePoint = require('./point')
 const setModulePointMachine = require('./point_machine')
+const setModuleIncome = require('./income')
 const app = express()
 
 startConnection()
@@ -15,5 +16,6 @@ setModuleAuth(app)
 setModulePointMachine(app)
 setModuleMachine(app)
 setModulePoint(app)
+setModuleIncome(app)
 
 module.exports = app

@@ -3,6 +3,9 @@ const inactiveState = 'I'
 const currenciesMachine = [
     '10 centimos', '20 centimos', '50 centimos'
 ];
+const typesIncome = [
+    'Ingreso', 'Salida',
+];
 const defaultCurrencyMachine = currenciesMachine[0]
 
 module.exports = {
@@ -12,4 +15,5 @@ module.exports = {
     inactiveState,
     currenciesMachine,
     defaultCurrencyMachine,
+    typesIncome,
 }
