@@ -35,16 +35,19 @@ Income.init(
         }
     },
     {
+        paranoid: true,
         sequelize,
         modelName: 'Income',
     },
 );
 
 (async () => {
-    await Income.sync({force: false})
+    await Income.sync({force: forceModel})
 })();
 
 Income.belongsTo(PointMachine, { foreignKey : 'idPointMachine'})
+PointMachine.hasMany(Income)
 Income.belongsTo(User, { foreignKey : 'idUser'})
+User.hasMany(Income)
 
 module.exports = Income

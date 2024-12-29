@@ -8,7 +8,6 @@ class PointMachine extends Model { }
 
 PointMachine.init(
     {
-
         porcentage: {
             type: DataTypes.DOUBLE,
             allowNull: false,
@@ -20,16 +19,19 @@ PointMachine.init(
         }
     },
     {
+        paranoid: true,
         sequelize,
         modelName: 'PointMachine',
     },
 );
 
 (async () => {
-    await sequelize.sync({ force: forceModel });
+    await PointMachine.sync({force: forceModel});
 })()
 
 PointMachine.belongsTo(Machine, { foreignKey: 'idMachine'})
+Machine.hasMany(PointMachine, {foreignKey: 'idMachine'})
 PointMachine.belongsTo(Point, { foreignKey: 'idPoint'})
+Point.hasMany(PointMachine, {foreignKey: 'idPoint'})
 
 module.exports = PointMachine

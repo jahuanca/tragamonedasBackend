@@ -39,6 +39,11 @@ Point.init(
       type: DataTypes.DOUBLE,
       allowNull: false,
     },
+    hasPointMachine: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
     state: {
       type: DataTypes.CHAR(1),
       defaultValue: activeState,
@@ -46,13 +51,14 @@ Point.init(
     }
   },
   {
+    paranoid: true,
     sequelize,
     modelName: 'Point',
   },
 );
 
 (async () => {
-  await sequelize.sync({ force: forceModel });
+  await Point.sync({ force: forceModel });
 })();
 
 module.exports = Point

@@ -29,6 +29,11 @@ Machine.init(
         image: {
             type: DataTypes.STRING(200),
         },
+        hasPointMachine: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
         state: {
             type: DataTypes.CHAR(1),
             defaultValue: activeState,
@@ -36,13 +41,14 @@ Machine.init(
         }
     },
     {
+        paranoid: true,
         sequelize,
         modelName: 'Machine',
     },
 );
 
 (async () => {
-    await sequelize.sync({ force: forceModel });
+    await Machine.sync({ force: forceModel });
 })();
 
 module.exports = Machine

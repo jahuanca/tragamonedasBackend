@@ -12,10 +12,10 @@ const app = express()
 startConnection()
 setMiddleware(app)
 setModuleAuth(app)
-setModulePointMachine(app)
-setModuleIncome(app)
 setModuleUser(app)
 setModuleMachine(app)
 setModulePoint(app)
+setModuleIncome(app)
+setModulePointMachine(app)
 
 module.exports = app

@@ -3,7 +3,9 @@ const Income = require("../db/models/income_model");
 
 const getTypesIncomeRepository = () => typesIncome
 
-const getIncomesRepository = ()=> Income.findAll() 
+const getIncomesRepository = ({
+    idPointMachine,
+})=> Income.findAll({where: {idPointMachine}}) 
 
 const createIncomeRepository = ({
     description,

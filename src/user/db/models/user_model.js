@@ -35,13 +35,14 @@ User.init(
         }
     },
     {
+        paranoid: true,
         sequelize,
         modelName: 'User',
     },
 );
 
 (async () => {
-    await sequelize.sync({ force: forceModel });
+    await User.sync({ force: forceModel });
 })();
 
 module.exports = User

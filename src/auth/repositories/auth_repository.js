@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const User = require("../../user/db/models/user_model");
 
 const loginRepository = (
