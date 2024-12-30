@@ -14,6 +14,7 @@ const createPointMachineRepository = async ({
         transaction: t
     })
     point.hasPointMachine = true
+    await point.save({ transaction: t })
 
     const machine = await Machine.findByPk(idMachine, {
         transaction: t

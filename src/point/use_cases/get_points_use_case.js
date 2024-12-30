@@ -1,5 +1,9 @@
 const { getPointsRepository } = require("../repositories/point_repository");
 
-const getPointsUseCaseExecute = ()=> getPointsRepository()
+const getPointsUseCaseExecute = ({
+    hasPointMachine,
+})=> getPointsRepository({
+    hasPointMachine,
+})
 
 module.exports = getPointsUseCaseExecute

@@ -22,7 +22,11 @@ const createPointRepository = ({
     porcentage,
 })
 
-const getPointsRepository = ()=> Point.findAll()
+const getPointsRepository = ({
+    hasPointMachine,
+})=> Point.findAll({
+    where: {hasPointMachine}
+})
 
 module.exports = {
     getPointsRepository,

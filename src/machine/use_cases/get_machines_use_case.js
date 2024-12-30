@@ -1,5 +1,9 @@
 const { getMachinesRepository } = require("../repositories/machine_repository");
 
-const getMachinesUseCaseExecute = () => getMachinesRepository()
+const getMachinesUseCaseExecute = ({
+    hasPointMachine,
+}) => getMachinesRepository({
+    hasPointMachine
+})
 
 module.exports = getMachinesUseCaseExecute

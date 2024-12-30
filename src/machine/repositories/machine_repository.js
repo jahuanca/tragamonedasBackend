@@ -17,7 +17,11 @@ const createMachineRepository = ({
     image,
 })
 
-const getMachinesRepository = () => Machine.findAll()
+const getMachinesRepository = ({
+    hasPointMachine,
+}) => Machine.findAll({
+    where: {hasPointMachine}
+})
 
 const getCurrenciesRepository = () => currenciesMachine
 
