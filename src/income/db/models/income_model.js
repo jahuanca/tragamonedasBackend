@@ -25,6 +25,11 @@ Income.init(
             type: DataTypes.ENUM(typesIncome),
             allowNull: false,
         },
+        hasExit: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
         isApproved: {
             type: DataTypes.STRING,
         },
@@ -42,12 +47,12 @@ Income.init(
 );
 
 (async () => {
-    await Income.sync({force: forceModel})
+    await Income.sync({force: forceModel,})
 })();
 
 Income.belongsTo(PointMachine, { foreignKey : 'idPointMachine'})
-PointMachine.hasMany(Income)
+PointMachine.hasMany(Income, {foreignKey : 'idPointMachine'})
 Income.belongsTo(User, { foreignKey : 'idUser'})
-User.hasMany(Income)
+User.hasMany(Income, {foreignKey: 'idPointMachine'})
 
 module.exports = Income

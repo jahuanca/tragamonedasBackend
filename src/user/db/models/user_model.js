@@ -2,7 +2,7 @@ const { DataTypes, Model } = require('sequelize');
 const {
     sequelize,
 } = require('./../../../utils/db/connection');
-const { forceModel, activeState, statesValues } = require('../../../utils/core/constants');
+const { forceModel, activeState, statesValues, typesUser } = require('../../../utils/core/constants');
 
 class User extends Model { }
 
@@ -26,6 +26,12 @@ User.init(
         },
         phoneNumber: {
             type: DataTypes.STRING(9),
+            allowNull: false,
+        },
+        typesUser: {
+            type: DataTypes.ENUM(
+                typesUser
+            ),
             allowNull: false,
         },
         state: {

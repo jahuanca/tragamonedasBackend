@@ -20,7 +20,7 @@ const createMachineRepository = ({
 const getMachinesRepository = ({
     hasPointMachine,
 }) => Machine.findAll({
-    where: {hasPointMachine}
+    where: { hasPointMachine }
 })
 
 const getCurrenciesRepository = () => currenciesMachine

@@ -30,8 +30,8 @@ PointMachine.init(
 })()
 
 PointMachine.belongsTo(Machine, { foreignKey: 'idMachine'})
-Machine.hasMany(PointMachine, {foreignKey: 'idMachine'})
+Machine.hasMany(PointMachine, {foreignKey: 'id'})
 PointMachine.belongsTo(Point, { foreignKey: 'idPoint'})
-Point.hasMany(PointMachine, {foreignKey: 'idPoint'})
+Point.hasMany(PointMachine, {foreignKey: 'id'})
 
 module.exports = PointMachine

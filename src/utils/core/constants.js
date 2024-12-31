@@ -6,9 +6,13 @@ const currenciesMachine = [
 const typeIncomeInsert = 'Ingreso'
 const typeIncomeExit = 'Salida'
 const typesIncome = [
-    typeIncomeInsert, 
+    typeIncomeInsert,
     typeIncomeExit,
 ];
+const typesUser = [
+    'Administrador',
+    'Usuario',
+]
 const defaultCurrencyMachine = currenciesMachine[0]
 
 module.exports = {
@@ -21,4 +25,5 @@ module.exports = {
     typesIncome,
     typeIncomeInsert,
     typeIncomeExit,
+    typesUser,
 }

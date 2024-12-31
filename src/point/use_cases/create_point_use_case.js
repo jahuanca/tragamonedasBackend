@@ -12,6 +12,7 @@ const createPointUseCaseExecute = ({
     phoneNumber,
     email,
     porcentage,
+    payWeekly,
 }) => createPointRepository({
     alias,
     firstName,
@@ -22,6 +23,7 @@ const createPointUseCaseExecute = ({
     phoneNumber,
     email,
     porcentage,
+    payWeekly,
 })
 
 module.exports = createPointUseCaseExecute

@@ -15,7 +15,7 @@ setModuleAuth(app)
 setModuleUser(app)
 setModuleMachine(app)
 setModulePoint(app)
-setModuleIncome(app)
 setModulePointMachine(app)
+setModuleIncome(app)
 
 module.exports = app

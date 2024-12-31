@@ -44,6 +44,15 @@ Point.init(
       allowNull: false,
       defaultValue: false,
     },
+    hasPointMachine: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    payWeekly: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     state: {
       type: DataTypes.CHAR(1),
       defaultValue: activeState,

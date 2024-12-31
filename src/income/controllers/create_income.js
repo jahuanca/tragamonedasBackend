@@ -9,13 +9,12 @@ const createIncomeController = async (req, res) => {
         typeIncome,
         idUser,
         idPointMachine,
-        
+
         description,
         withPayForClient,
         payForClient,
     } = req.body
-    if (typeIncome == typeIncomeInsert && withPayForClient) {
-        //create first ingreso
+    if (typeIncome == typeIncomeInsert) {
         const [errInsert, insertMoney] = await getPromise(createIncomeUseCaseExecute({
             description: 'Ingreso de dinero por retiro a maquina',
             date,
@@ -23,19 +22,22 @@ const createIncomeController = async (req, res) => {
             typeIncome,
             idUser: 1,
             idPointMachine,
+            hasExit: withPayForClient ?? false,
         }))
         if (errInsert) return res.status(500).json(errInsert)
-        const [errExit, exitMoney] = await getPromise(createIncomeUseCaseExecute({
-            description: 'Salida de dinero por pago a cliente',
-            date,
-            amount: payForClient,
-            typeIncome: typeIncomeExit,
-            idUser: 1,
-            idPointMachine,
-        }))
-        if (errExit) return res.status(500).json(errExit)
+        if (withPayForClient) {
+            const [errExit, exitMoney] = await getPromise(createIncomeUseCaseExecute({
+                description: 'Salida de dinero por pago a cliente',
+                date,
+                amount: payForClient,
+                typeIncome: typeIncomeExit,
+                hasExit: true,
+                idUser: 1,
+                idPointMachine,
+            }))
+            if (errExit) return res.status(500).json(errExit)
+        }
         return res.status(200).json(insertMoney)
-        //create second salida
     } else {
         const [errExit, exitMoney] = await getPromise(createIncomeUseCaseExecute({
             description,
@@ -43,9 +45,10 @@ const createIncomeController = async (req, res) => {
             amount,
             typeIncome,
             idUser,
+            hasExit: true,
             idPointMachine,
         }))
-        if (errInsert) return res.status(500).json(errInsert)
+        if (errExit) return res.status(500).json(errExit)
         return res.status(200).json(exitMoney)
     }
 }

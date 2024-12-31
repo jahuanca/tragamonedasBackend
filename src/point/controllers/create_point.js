@@ -12,6 +12,7 @@ const createPointController = async (req, res) => {
         phoneNumber,
         email,
         porcentage,
+        payWeekly,
     } = req.body
 
     const [err, point] = await getPromise(createPointUseCaseExecute(
@@ -25,6 +26,7 @@ const createPointController = async (req, res) => {
             phoneNumber,
             email,
             porcentage,
+            payWeekly
         }
     ))
     if (err) return res.status(500).json(err)

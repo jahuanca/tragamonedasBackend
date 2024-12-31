@@ -7,6 +7,7 @@ const createIncomeUseCaseExecute = ({
     typeIncome,
     idUser,
     idPointMachine,
+    hasExit,
 })=> createIncomeRepository({
     description,
     date,
@@ -14,6 +15,7 @@ const createIncomeUseCaseExecute = ({
     typeIncome,
     idUser,
     idPointMachine,
+    hasExit,
 })
 
 module.exports = createIncomeUseCaseExecute

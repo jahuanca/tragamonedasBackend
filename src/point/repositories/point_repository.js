@@ -10,6 +10,7 @@ const createPointRepository = ({
     phoneNumber,
     email,
     porcentage,
+    payWeekly,
 })=> Point.create({
     alias,
     firstName,
@@ -20,6 +21,7 @@ const createPointRepository = ({
     phoneNumber,
     email,
     porcentage,
+    payWeekly,
 })
 
 const getPointsRepository = ({
