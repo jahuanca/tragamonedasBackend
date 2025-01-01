@@ -4,10 +4,12 @@ const getIncomesUseCaseExecute = ({
     idPointMachine,
     firstDate,
     lastDate,
+    includeModels,
 })=> getIncomesRepository({
     idPointMachine,
     firstDate,
     lastDate,
+    includeModels,
 })
 
 module.exports = getIncomesUseCaseExecute

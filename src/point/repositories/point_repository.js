@@ -26,9 +26,13 @@ const createPointRepository = ({
 
 const getPointsRepository = ({
     hasPointMachine,
-})=> Point.findAll({
-    where: {hasPointMachine}
-})
+})=>{
+    const where = {}
+    if(hasPointMachine != undefined) where.hasPointMachine = hasPointMachine;
+    return  Point.findAll({
+        where: where
+    });
+}
 
 module.exports = {
     getPointsRepository,

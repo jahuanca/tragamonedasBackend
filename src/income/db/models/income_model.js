@@ -31,7 +31,7 @@ Income.init(
             defaultValue: false,
         },
         isApproved: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
         },
         state: {
             type: DataTypes.CHAR(1),

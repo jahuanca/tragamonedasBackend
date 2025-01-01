@@ -1,3 +1,5 @@
+const Point = require("../../point/db/models/point_model");
+const PointMachine = require("../../point_machine/db/models/point_machine_model");
 const { typesIncome } = require("../../utils/core/constants");
 const { initialOfDay, finalOfDay } = require("../../utils/core/helpers");
 const Income = require("../db/models/income_model");
@@ -9,15 +11,28 @@ const getIncomesRepository = ({
     idPointMachine,
     firstDate,
     lastDate,
+    includeModels,
 }) => {
-    let where = {}
-    if (idPointMachine) where.idPointMachine = idPointMachine
+    const options = { 
+        order: [['date', 'DESC']],
+    };
+    const where = {}
+    if (idPointMachine) {
+        where.idPointMachine = idPointMachine
+        options.where = where
+    }
     if (firstDate && lastDate) {
         const first = initialOfDay(firstDate);
         const last = finalOfDay(lastDate);
         where.date = { [Op.between]: [first, last] }
+        options.where = where
     }
-    return Income.findAll({ where: where, order: [['date', 'DESC']] })
+    if(includeModels){
+        options.include = [
+            {model: PointMachine, require: true, include : [{model: Point}]}
+        ]
+    }
+    return Income.findAll(options)
 }
 
 const createIncomeRepository = ({

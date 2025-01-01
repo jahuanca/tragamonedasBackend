@@ -19,9 +19,13 @@ const createMachineRepository = ({
 
 const getMachinesRepository = ({
     hasPointMachine,
-}) => Machine.findAll({
-    where: { hasPointMachine }
-})
+}) => {
+    const where = {}
+    if(hasPointMachine != undefined) where.hasPointMachine = hasPointMachine;
+    return Machine.findAll({
+        where: where,
+    });
+}
 
 const getCurrenciesRepository = () => currenciesMachine
 
