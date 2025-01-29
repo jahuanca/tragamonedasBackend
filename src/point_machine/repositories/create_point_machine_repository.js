@@ -1,7 +1,5 @@
-const Machine = require("../../machine/db/models/machine_model");
 const Point = require("../../point/db/models/point_model");
 const { sequelize } = require("../../utils/db/connection");
-const PointMachine = require("../db/models/point_machine_model");
 
 const createPointMachineRepository = async ({
     idPoint,
@@ -30,14 +28,4 @@ const createPointMachineRepository = async ({
     return pointMachine
 }
 
-const getPointsMachineRepository = () => PointMachine.findAll({
-    include: [
-        {model: Point, required: true},
-        {model: Machine, required: true}
-    ]
-})
-
-module.exports = {
-    getPointsMachineRepository,
-    createPointMachineRepository,
-}
+module.exports = createPointMachineRepository

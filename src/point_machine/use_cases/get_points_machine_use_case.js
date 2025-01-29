@@ -1,4 +1,4 @@
-const { getPointsMachineRepository } = require("../repositories/point_machine_repository");
+const { getPointsMachineRepository } = require("../repositories");
 
 const getPointsMachineUseCaseExecute = ()=> getPointsMachineRepository()
 

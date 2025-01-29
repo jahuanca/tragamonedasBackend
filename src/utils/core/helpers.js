@@ -2,7 +2,7 @@ const getPromise = (promise) =>
   promise.then(data => {
     return [null, data]
   }).catch(err => {
-    console.log('Error: '+ err)
+    console.log('Error: ' + err)
     return [err]
   })
 

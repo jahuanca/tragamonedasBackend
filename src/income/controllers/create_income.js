@@ -27,7 +27,7 @@ const createIncomeController = async (req, res) => {
         if (errInsert) return res.status(500).json(errInsert)
         if (withPayForClient) {
             const [errExit, exitMoney] = await getPromise(createIncomeUseCaseExecute({
-                description: 'Salida de dinero por pago a cliente',
+                description: 'Pago a cliente',
                 date,
                 amount: payForClient,
                 typeIncome: typeIncomeExit,

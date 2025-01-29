@@ -1,6 +1,6 @@
 const {
     createPointMachineRepository,
-} = require("../repositories/point_machine_repository");
+} = require("../repositories");
 
 const createPointMachineUseCaseExecute = ({
     idPoint,
